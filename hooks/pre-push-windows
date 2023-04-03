@@ -9,8 +9,8 @@ statusTest=$?
 if [[ $statusTest -ne 0 ]]
 then
   echo "-----------------Run test fail (fix test)---------------"
-  exit 1
+  exit $statusTest
 else
   echo "-----------------Run test done--------------------------"
-  exit 0
+  exit $statusTest
 fi
