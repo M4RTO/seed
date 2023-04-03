@@ -30,5 +30,4 @@ class TestConfig {
         .newBuilder()
         .build()
         .tracer()
-
 }

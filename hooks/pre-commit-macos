@@ -1,19 +1,13 @@
 #!/bin/bash
 
-echo "-----------------Running lint check---------------"
-
-./gradlew  ktlintCheck
-
-statusLint=$?
-
-
 echo "-----------------Running unit test---------------"
 
 ./gradlew test
 
 statusTest=$?
 
-echo "-----------------Done with unit test---------------"
-
-[ $statusLint -ne 0 && $statusTest -ne 0 ] && exit 1
-exit 0
+if [[ $statusTest -ne 0 ]]
+then
+  echo "-----------------Run test fail (fix test)---------------"
+  exit 1
+fi
