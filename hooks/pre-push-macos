@@ -14,3 +14,4 @@ else
   echo "-----------------Run test done--------------------------"
   exit 1
 fi
+exit 0
