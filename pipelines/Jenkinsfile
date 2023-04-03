@@ -1,0 +1,11 @@
+#!groovy
+library identifier: 'payments-lib@master', retriever: modernSCM([
+        $class: 'GitSCMSource',
+        remote: 'https://gitlab.falabella.com/fif/payments/common-libraries/jenkins-library.git',
+        credentialsId: 'jenkins-fiftech-gitlab'
+])
+deployGradleJavaServicePipeline image_name: "fif-payments-spring-kotlin-seed",
+                                deploy_in_test_pipeline_name: "spring-kotlin-seed",
+                                repo_stack_url: "https://gitlab.falabella.com/fif/payments/wallet/services/fif-payments-spring-kotlin-seed.git",
+                                sonar_quality_gate: false,
+                                should_deploy: false

@@ -1,0 +1,5 @@
+spring:
+  application.name: fif-payments-spring-kotlin-seed
+  main.allow-bean-definition-overriding: true
+
+rest.client.default.timeout: 10000

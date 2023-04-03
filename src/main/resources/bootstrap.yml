@@ -1,0 +1,10 @@
+spring:
+  application.name: fif-payments-spring-kotlin-seed
+  sleuth:
+    baggage:
+      remote-fields:
+        - kong-request-id
+      correlation-fields:
+        - kong-request-id
+
+rest.client.default.timeout: ${REST_CLIENT_DEFAULT_TIMEOUT}
