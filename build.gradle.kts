@@ -88,7 +88,7 @@ tasks {
 	}
 
 	"copy"(Copy::class) {
-		from("hooks/pre-commit-$suffix") {
+		from("hooks/pre-push-$suffix") {
 			rename { it.removeSuffix("-$suffix") }
 		}
 		into(".git/hooks").fileMode = 0b111101101

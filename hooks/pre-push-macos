@@ -1,13 +1,16 @@
-#!C:/Program\ Files/Git/usr/bin/sh.exe
+#!/bin/bash
 
 echo "-----------------Running unit test---------------"
 
-./gradlew.bat test
+./gradlew test
 
 statusTest=$?
 
 if [[ $statusTest -ne 0 ]]
 then
   echo "-----------------Run test fail (fix test)---------------"
+  exit 1
+else
+  echo "-----------------Run test done--------------------------"
   exit 1
 fi
