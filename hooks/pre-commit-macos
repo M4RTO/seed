@@ -4,14 +4,16 @@ echo "-----------------Running lint check---------------"
 
 ./gradlew  ktlintCheck
 
+statusLint=$?
+
+
 echo "-----------------Running unit test---------------"
 
 ./gradlew test
 
+statusTest=$?
+
 echo "-----------------Done with unit test---------------"
 
-status=$?
-
-# return 1 exit code if running checks fails
-[ $status -ne 0 ] && exit 1
+[ $statusLint -ne 0 && $statusTest 0 ] && exit 1
 exit 0
