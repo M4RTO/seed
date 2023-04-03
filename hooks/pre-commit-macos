@@ -6,8 +6,6 @@ echo "-----------------Running lint check---------------"
 
 statusLint=$?
 
-[ $statusLint -ne 0 ] && exit 1
-exit 0
 
 echo "-----------------Running unit test---------------"
 
@@ -15,7 +13,7 @@ echo "-----------------Running unit test---------------"
 
 statusTest=$?
 
-[ $statusTest -ne 0 ] && exit 1
-exit 0
-
 echo "-----------------Done with unit test---------------"
+
+[ $statusLint -ne 0 && $statusTest -ne 0 ] && exit 1
+exit 0
