@@ -12,6 +12,5 @@ then
   exit 1
 else
   echo "-----------------Run test done--------------------------"
-  exit 1
+  exit 0
 fi
-exit 0
