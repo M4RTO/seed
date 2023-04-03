@@ -150,7 +150,7 @@ class PokemonControllerAdapterTest {
             content = request
         }.andExpect {
             status { isBadRequest() }
-            content { json("{ \"code\": 103, \"detail\": \"name cannot be null\" }") }
+            content { json("{ \"code\": 102, \"detail\": \"name cannot be null\" }") }
         }
     }
 
