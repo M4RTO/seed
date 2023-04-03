@@ -15,5 +15,5 @@ statusTest=$?
 
 echo "-----------------Done with unit test---------------"
 
-[ $statusLint -ne 0 ] && [ $statusTest 0 ] && exit 1
+[ $statusLint -ne 0 ] && [ $statusTest -ne 0 ] && exit 1
 exit 0
