@@ -72,3 +72,33 @@ tasks.withType<JacocoReport> {
 		xml.required.set(true)
 	}
 }
+
+
+tasks.getByName<Jar>("jar") {
+	enabled = false
+}
+
+tasks.register<Copy>("copy")
+
+tasks {
+
+	var suffix = "macos"
+	if (org.apache.tools.ant.taskdefs.condition.Os.isFamily(org.apache.tools.ant.taskdefs.condition.Os.FAMILY_WINDOWS)) {
+		suffix = "windows"
+	}
+
+	"copy"(Copy::class) {
+		from("hooks/pre-commit-$suffix") {
+			rename { it.removeSuffix("-$suffix") }
+		}
+		into(".git/hooks").fileMode = 0b111101101
+	}
+
+	"build" {
+		dependsOn("copy")
+	}
+}
+
+springBoot {
+	buildInfo()
+}
